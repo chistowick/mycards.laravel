@@ -1,0 +1,257 @@
+body {
+    font-family: "Trebuchet MS", Verdana;
+    background-color: beige;
+    margin: 0px;
+    padding: 0px;
+    min-width: 1200px;
+    height:100%;
+    width:100%;
+}
+
+#header {
+    background-color: lightskyblue;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+}
+
+#authentication-allowed, #authentication-denied {
+    margin: 0px;
+    padding: 10px 0px 30px 20px;
+    box-sizing: border-box;
+    width: 30%;
+    min-height: 100px;
+    border-right: solid 2px;
+    border-color: white;
+}
+
+label {
+    display: block;
+    margin: 10px 0px 0px 0px;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-bottom: solid 2px;
+    border-color: lightskyblue;
+}
+
+#leftArea{
+    padding: 70px 60px 0px 60px;
+    box-sizing: border-box !important;
+    width: 30%;
+    min-height: 400px;
+    background-color: white;
+    border-right: solid 2px;
+    border-color: lightskyblue;
+}
+
+.cards {
+    box-sizing: border-box !important;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#stack_1{
+    background-color: red;
+}
+
+#stack_2{
+    background-color: yellow;
+}
+
+#stack_3{
+    background-color: darkgreen;
+}
+
+#stack_1, #stack_2, #stack_3{
+    padding: 20px; /*временно*/
+    margin-bottom: 30px;
+    height: 120px;
+    width: 100%;
+    box-shadow: 5px 3px 4px 1px black;
+    cursor: pointer;
+}
+
+#stack_1:hover, #stack_2:hover, #stack_3:hover{
+    box-shadow: 0px 0px 10px 6px gold;
+}
+
+#rightArea {
+    box-sizing: border-box !important;
+    width: 70%;
+    min-height: 400px;
+    background-color: white;
+}
+
+#menuOptions{
+    box-sizing: border-box !important;
+    width: 100%;
+    background-color: white;
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_menu {
+    margin: 0px;
+    padding: 0px;
+    min-height: 50px;
+    cursor:pointer;
+    font: 100% "Trebuchet MS", Verdana;
+}
+
+.top_menu p {
+    display:block;
+    height:100%;
+    text-align:center;
+}
+
+#search {
+    width: 40%;
+    box-sizing: border-box !important;
+    background-color: lightblue;
+}
+
+#search_select {
+    display: block;
+    min-height: 50px;
+    width: 100%;
+    height: 100%;
+    font: 145% "Trebuchet MS", Verdana;
+    border: none; 
+    padding: 0px 0px 0px 5px;
+}
+
+#front_side_activation {
+    width: 15%;
+    box-sizing: border-box !important;
+    background-color: #29de29;
+    border: 2px solid white;
+}
+
+#back_side_activation {
+    width: 15%;
+    box-sizing: border-box !important;
+    background-color: lightgray;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#addCard {
+    width: 10%;
+    box-sizing: border-box !important;
+    background-color: lightgreen;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#rewriteCard {
+    width: 10%;
+    box-sizing: border-box !important;
+    background-color: gray;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#deleteCard {
+    width: 10%;
+    box-sizing: border-box !important;
+    background-color: maroon;
+    color: white;
+    border-right: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#workArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-top: 2px solid lightskyblue;
+}
+
+#active_stack {
+    height: 220px;
+    width: 400px;
+    margin: 0px;
+    padding: 20px;
+    background-color: lightgray;
+    /*border: 4px solid blue;*/
+    box-shadow: 2px 1px 2px 0px black;
+}
+
+#original_side, #translation_side {
+    height: 100%;
+}
+
+.wrap_inf_card {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrap_inf_card p {
+    display: block;
+}
+
+.navigation {
+    display: flex;
+    background-color: orange;
+    opacity: 0.6;
+    height: 80px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.navigation:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.navigation p {
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back {
+    float: left;
+    border-radius: 40px 10px 10px 40px;
+    margin-right: 20px;
+}
+
+#forward {
+    float: right;
+    border-radius: 10px 40px 40px 10px;
+    margin-left: 20px;
+}
+
+#footer{
+    min-height: 40px;
+    width: 100%;
+    background: linear-gradient(to top left, #423400, #03da03);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: "Trebuchet MS", Verdana;
+    font-style: italic;
+    font-size: 100%;
+}
