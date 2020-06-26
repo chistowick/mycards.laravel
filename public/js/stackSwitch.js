@@ -49,6 +49,7 @@ $(document).ready(function () {
         // Итерируем активный стек и наполняем массив активных карточек для 
         // более удобного манипулирования карточками
         let j = 0;
+        activeCardsArray = []; // Очищаем массив перед заполнением
         for (let numCardInStack in activeStack) {
             activeCardsArray[j] = activeStack[numCardInStack];
 

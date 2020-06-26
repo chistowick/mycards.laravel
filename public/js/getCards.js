@@ -4,7 +4,6 @@
 window.onload = getCards();
 
 let curentNumberActiveCard;
-let responseObj;
 let activeStack;
 let stack = {
     1: {},
@@ -50,7 +49,7 @@ function getCards() {
         } else { // if all OK
 
             // Writing the result to a variable
-            responseObj = request.response;
+            let responseObj = request.response;
 
             let numStack;
             let idCard;
@@ -68,7 +67,7 @@ function getCards() {
             sizeOfStack_2 = stack[2].length;
             sizeOfStack_3 = stack[3].length;
 
-//            console.log(stack);
+            console.log(stack);
 //            console.log(responseObj);
 
         }

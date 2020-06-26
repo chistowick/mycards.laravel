@@ -15,6 +15,10 @@ function showForwardCard() {
     $(activeSideId).css({'display': 'block'});
     $(inactiveSideId).css({'display': 'none'});
 
+    if (activeCardsArray.length == 0) {
+        return;
+    }
+
     forwardCard();
     updateCardView();
 }
@@ -24,12 +28,20 @@ function showBackCard() {
     // Устанавливаем активную сторону карточки по умолчанию
     $(activeSideId).css({'display': 'block'});
     $(inactiveSideId).css({'display': 'none'});
+    
+    if (activeCardsArray.length == 0){
+        return;
+    }
 
     backCard();
     updateCardView();
 }
 
 function upendCard() {
+    
+    if (activeCardsArray.length == 0){
+        return;
+    }
 
     // Если порядковый номер карточки меньше нуля, т.е. только что произошла 
     // смена стека, то пререходим к последнему элементу массива - т.е. к верхней
@@ -94,9 +106,9 @@ function updateCardView() {
 
     // Выводим данные новой карточки в соответствующие поля
     document.querySelector('#original').insertAdjacentHTML("afterBegin", original);
-    document.querySelector('#original_comment').insertAdjacentHTML("afterBegin", originalComment);
+    document.querySelector('#original_comment').insertAdjacentHTML("afterBegin", originalComment || ' ');
     document.querySelector('#translation').insertAdjacentHTML("afterBegin", translation);
-    document.querySelector('#translation_comment').insertAdjacentHTML("afterBegin", translationComment);
+    document.querySelector('#translation_comment').insertAdjacentHTML("afterBegin", translationComment || ' ');
 }
 
 // Set an event listener for each element. (selector, event, action)
