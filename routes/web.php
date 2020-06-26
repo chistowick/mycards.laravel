@@ -17,4 +17,8 @@ Route::get('/', function(){
     return view('main');
 });
 
+// Маршрут для получения списка всех доступных пользователю карточек
 Route::post('ajax/get-cards', 'AjaxController@getCards');
+
+// Маршрут для обработки запроса на добавление новой карточки
+Route::post('ajax/add-card', 'AjaxController@addCard');
