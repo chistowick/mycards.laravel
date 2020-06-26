@@ -3,7 +3,7 @@ body {
     background-color: beige;
     margin: 0px;
     padding: 0px;
-    min-width: 1200px;
+    min-width: 1300px;
     height:100%;
     width:100%;
 }
@@ -41,10 +41,18 @@ label {
 }
 
 #leftArea{
-    padding: 70px 60px 0px 60px;
+    display: flex;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    min-height: 500px;
+    
+    padding: 100px 60px 50px 60px;
     box-sizing: border-box !important;
     width: 30%;
-    min-height: 400px;
+    min-height: 500px;
     background-color: white;
     border-right: solid 2px;
     border-color: lightskyblue;
@@ -177,8 +185,9 @@ label {
 #workArea {
     display: flex;
     align-items: center;
+    align-content: center;
     justify-content: center;
-    height: 100%;
+    min-height: 500px;
     border-top: 2px solid lightskyblue;
 }
 
@@ -190,6 +199,52 @@ label {
     background-color: lightgray;
     /*border: 4px solid blue;*/
     box-shadow: 2px 1px 2px 0px black;
+}
+
+/* форма создания новой карточки */
+#form_add_card {
+    display: none;
+}
+
+#orig-part-form, #transl-part-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+    width: 400px;
+    margin: 10px 0px 0px 0px;
+    padding: 10px 0px 20px 0px;
+    background-color: lightgray;
+    /*border: 4px solid blue;*/
+    box-shadow: 2px 1px 2px 0px black;
+    box-sizing: border-box !important;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#add-select-stack-div {
+    float: left;
+}
+
+#select-new-card-stack {
+    margin-top: 0px;
+    min-height: 25px;
+    padding: 5px;
+    font: 115% "Trebuchet MS", Verdana;
+}
+
+#add-form-button {
+    display: block;
+    float: right;
+    background-color: lightgreen;
+    min-height: 40px;
+    min-width: 200px;
+    padding: 5px auto 5px auto;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    
+    font: bold 100% "Trebuchet MS", Verdana;
+    cursor: pointer;
 }
 
 #original_side, #translation_side {
