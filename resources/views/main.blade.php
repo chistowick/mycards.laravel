@@ -12,7 +12,7 @@
     </head>
     <body>
         <form>{{csrf_field()}}</form> {{--CSRF token--}}
-        
+
         <div id="header">
             <?php
             if (isset($_SESSION['login'], $_SESSION['access'])
@@ -76,6 +76,38 @@
                             </div>
                         </div>
                     </div>
+                    <div id="form_add_card" class="cards">
+                        <div id="orig-part-form">
+                            <div class="input-new-card"><label for="input-orig">Оriginal: </label>
+                                <input type="text" id="input-orig" name="input-orig" 
+                                       placeholder="required" >
+                            </div>
+                            <div class="input-new-card"><label for="input-orig-comment">Оriginal comment: </label>
+                                <input type="text" id="input-orig-comment" name="input-orig-comment" 
+                                       placeholder="optional" >
+                            </div>
+                        </div>
+                        <div id="transl-part-form">
+                            <div class="input-new-card"><label for="input-transl">Translation: </label>
+                                <input type="text" id="input-transl" name="input-transl" 
+                                       placeholder="required" >
+                            </div>
+                            <div class="input-new-card"><label for="input-transl-comment">Translation comment: </label>
+                                <input type="text" id="input-transl-comment" name="input-transl-comment" 
+                                       placeholder="optional" >
+                            </div>
+                        </div>
+                        <div class="input-new-card" id="add-select-stack-div">
+                            <p style="margin-bottom: 5px;">Choose a stack</p>
+                            <select id="select-new-card-stack" size="1" name="select-new-card-stack">
+                                <option value="1">New word</option>
+                                <option value="2">To study</option>
+                                <option value="3">Already know</option>
+                            </select>
+                        </div>
+                        <button class="form-button" id="add-form-button" type="button" value="add">
+                            Save</button>
+                    </div>
                     <div id="forward" class="navigation"><p>FORWARD</p></div>
                 </div>
             </div>
@@ -87,6 +119,7 @@
         <script src='js/stackSwitch.js'></script>
         <script src='js/showCard.js'></script>
         <script src='js/settings.js'></script>
-        
+        <script src='js/addCard.js'></script>
+
     </body>
 </html>
