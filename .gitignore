@@ -15,8 +15,8 @@ public/sitemap.xml
 public/*.html
 public/robots.txt
 
-# Created by https://www.toptal.com/developers/gitignore/api/laravel,windows,netbeans,composer
-# Edit at https://www.toptal.com/developers/gitignore?templates=laravel,windows,netbeans,composer
+# Created by https://www.toptal.com/developers/gitignore/api/composer,laravel,windows,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=composer,laravel,windows,visualstudiocode
 
 ### Composer ###
 composer.phar
@@ -50,15 +50,17 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-### NetBeans ###
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -86,4 +88,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/laravel,windows,netbeans,composer
+# End of https://www.toptal.com/developers/gitignore/api/composer,laravel,windows,visualstudiocode
