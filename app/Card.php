@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Card extends Model {
+class Card extends Model
+{
 
     /**
      * Атрибуты, для которых разрешено массовое назначение.
@@ -12,12 +13,10 @@ class Card extends Model {
      * @var array
      */
     protected $fillable = [
-        'id',
         'original',
         'originalComment',
         'translation',
         'translationComment',
         'stack',
     ];
-
 }
