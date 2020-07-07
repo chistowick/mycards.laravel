@@ -163,7 +163,7 @@ label {
     border-bottom: 2px solid white;
 }
 
-#rewriteCard {
+#editCard {
     width: 10%;
     box-sizing: border-box !important;
     background-color: gray;
@@ -233,7 +233,7 @@ label {
     font: 115% "Trebuchet MS", Verdana;
 }
 
-#add-form-button {
+.add-or-edit {
     display: block;
     float: right;
     background-color: lightgreen;
