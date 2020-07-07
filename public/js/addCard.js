@@ -1,58 +1,96 @@
 "use strict";
 
-// Добавляем обработчик клика на кнопку добавления новой карточки:
-$(document).ready(function () {
-    $('#addCard').click(function () {
-        changeFormVisibility();
-    });
-});
+// Задаем маркер активного действия add or edit
+let addOrEdit = 'off';
+
+// Задаём идентификаторы активного стека и блока формы добавления новой карточки
+let activeStackId = '#active_stack';
+let addFormId = '#form_add_card';
+
+// Задаем цвета кнопок по умолчанию
+let addIndicDefColour = 'lightgreen';
+let editIndicDefColour = 'gray';
+
+// Задаем цвет активного индикатора
+let activeIndicatorColour = '#e4ff00';
 
 // Добавляем обработчик клика на кнопку сохранения новой карточки:
 $(document).ready(function () {
-    $('#add-form-button').click(function () {
+    $('body').delegate('#add-form-button', 'click', function () {
         submitNewCard();
     });
 });
 
-// Инвертируем видимость активного стека и блока формы создания карточки
-function changeFormVisibility() {
+// Добавляем обработчик клика на кнопку добавления новой карточки:
+$(document).ready(function () {
+    $('#addCard').click(function () {
 
-    // Задаём идентификаторы активного стека и блока формы добавления новой карточки
-    let activeStackId = '#active_stack';
-    let addFormId = '#form_add_card';
+        // Переводим кнопку формы в режим ADD
+        $('.add-or-edit').attr('id', 'add-form-button');
 
-    let activeStackDisplayStatus = $(activeStackId).css('display');
-    let addFormDisplayStatus = $(addFormId).css('display');
+        // Если переключение в режим ADD происходит при активном режиме EDIT
+        // то просто очищаем форму, меняем активный индикатор и завершаем функцию
+        if (addOrEdit === 'edit') {
 
-    // Инвертируем видимость активного стека и блока с формой
-    if ((addFormDisplayStatus == 'none')
-            && (activeStackDisplayStatus == 'block')) {
+            clearForm();
 
-        $(addFormId).css({'display': 'block'});
-        $(activeStackId).css({'display': 'none'});
+            setDefaultButtonsColour();
 
-        // Подсвечиваем кнопку Add
-        $('#addCard').css({'background-color': "#e4ff00"});
+            $('#addCard').css({ 'background-color': activeIndicatorColour });
 
-        // Скрываем навигационные кнопки .navigation
-        $('.navigation').css({'display': 'none'});
-    }
+            addOrEdit = 'add';
 
-    // Инвертируем видимость активного стека и блока с формой
-    if ((activeStackDisplayStatus == 'none')
-            && (addFormDisplayStatus == 'block')) {
+            return;
 
-        $(activeStackId).css({'display': 'block'});
-        $(addFormId).css({'display': 'none'});
+        }
 
-        // Убираем подсветку кнопки Add
-        $('#addCard').css({'background-color': "lightgreen"});
+        // Если происходит второе подряд нажатие на ADD
+        // отменяем подсветку, скрываем форму и показываем активный стек
+        if (addOrEdit === 'add') {
 
-        // Делаем видимыми навигационные кнопки .navigation
-        $('.navigation').css({'display': 'flex'});
-    }
+            // Отменяем подсветку
+            setDefaultButtonsColour();
 
-}
+            // скрываем форму и показываем активный стек
+            $(activeStackId).css({ 'display': 'block' });
+            $(addFormId).css({ 'display': 'none' });
+
+            // Делаем видимыми навигационные кнопки .navigation
+            $('.navigation').css({ 'display': 'flex' });
+
+            // Задаем значение маркера активного действия add or edit
+            addOrEdit = 'off';
+
+            return;
+        }
+
+        // Если происходит 'правильный' переход в режим ADD,
+        // подсвечиваем индикатор, скрываем активный стек, показываем форму
+        if (addOrEdit === 'off') {
+
+            // Очищаем форму
+            clearForm();
+
+            // Подсвечиваем индикатор, по которому был клик
+            $('#addCard').css({ 'background-color': activeIndicatorColour });
+
+            // скрываем активный стек и показываем форму
+            $(activeStackId).css({ 'display': 'none' });
+            $(addFormId).css({ 'display': 'block' });
+
+            // Скрываем навигационные кнопки .navigation
+            $('.navigation').css({ 'display': 'none' });
+
+            addOrEdit = 'add';
+
+            return;
+
+        }
+
+        console.log('Не удалось определить предыдущий активный режим');
+        return;
+    });
+});
 
 // Submit a new card form to the server
 function submitNewCard() {
@@ -133,8 +171,8 @@ function submitNewCard() {
 
                 clearForm();
 
-//                console.log(activeCardsArray);
-//                console.log(stack);
+                //                console.log(activeCardsArray);
+                //                console.log(stack);
 
             }
         }
@@ -164,6 +202,12 @@ function clearForm() {
     document.querySelector('#input-transl').value = '';
     document.querySelector('#input-transl-comment').value = '';
     document.querySelector('#select-new-card-stack').value = 1;
-    
+
     return;
+}
+
+function setDefaultButtonsColour() {
+
+    $('#addCard').css({ 'background-color': addIndicDefColour });
+    $('#editCard').css({ 'background-color': editIndicDefColour });
 }

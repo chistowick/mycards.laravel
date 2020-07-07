@@ -12,6 +12,8 @@ let stack = {
 };
 let sizeOfStack_1, sizeOfStack_2, sizeOfStack_3;
 
+let activeStackNumber;
+
 // Request all cards from the table
 function getCards() {
 

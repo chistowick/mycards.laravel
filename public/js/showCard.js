@@ -39,6 +39,7 @@ function showBackCard() {
 
 function upendCard() {
     
+    // Если стек еще не выбран
     if (activeCardsArray.length == 0){
         return;
     }
