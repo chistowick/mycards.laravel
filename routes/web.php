@@ -22,3 +22,9 @@ Route::post('ajax/get-cards', 'AjaxController@getCards');
 
 // Маршрут для обработки запроса на добавление новой карточки
 Route::post('ajax/add-card', 'AjaxController@addCard');
+
+// Маршрут для обработки запроса на редактирование карточки
+Route::post('ajax/edit-card', 'AjaxController@editCard');
+
+// Маршрут для обработки запроса на удаление карточки
+Route::post('ajax/delete-card', 'AjaxController@deleteCard');
