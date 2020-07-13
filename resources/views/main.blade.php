@@ -53,11 +53,8 @@
             <!-- Меню настроек -->
             <div id="menuOptions">
                 <div id="search" class="top_menu">
-                    <select id="search_select" size="1" name="word">
-                        <option value="Карточка_1">Карточка_1</option>
-                        <option value="Карточка_2">Карточка_2</option>
-                        <option value="Карточка_3">Карточка_3</option>
-                        <option value="Карточка_4">Карточка_4</option>
+                    <select id="fastSelect" size="1" name="word">
+                        <option class="selectElements" value="Select">Select</option>
                     </select>
                 </div>
                 <div id="front_side_activation" class="top_menu set_active_side">
@@ -151,6 +148,7 @@
     <script src='js/addCard.js'></script>
     <script src='js/editCard.js'></script>
     <script src='js/deleteCard.js'></script>
+    <script src='js/fastSelectCard.js'></script>
 
 </body>
 

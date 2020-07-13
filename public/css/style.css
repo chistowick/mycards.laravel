@@ -128,7 +128,7 @@ label {
     background-color: lightblue;
 }
 
-#search_select {
+#fastSelect {
     display: block;
     min-height: 50px;
     width: 100%;
