@@ -74,6 +74,9 @@ $(document).ready(function () {
         // Очищаем данные предыдущей карточки
         clearActiveCard();
 
+        // Заполняем список в FASTSELECT
+        fastSelectlistCreate();
+
     });
 });
 
