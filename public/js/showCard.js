@@ -69,7 +69,7 @@ function upendCard() {
 function forwardCard() {
     // Добавляем к существующему номеру текущего элемента массива активных 
     // карточек единицу, таким образом определяем номер новой карточки
-    curentNumberActiveCard = curentNumberActiveCard + 1;
+    curentNumberActiveCard = +curentNumberActiveCard + 1;
 
     // Если номер достиг величины массива, пререходим к началу массива - 
     // т.е. к нижней карточке
