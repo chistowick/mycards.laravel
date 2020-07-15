@@ -305,7 +305,8 @@ function submitEditedCard() {
 
                 }
 
-
+                // Обновляем список карточек в SELECT
+                fastSelectlistCreate();
             }
         }
     };

@@ -93,7 +93,8 @@ function deleteCard() {
                     // Очищаем данные предыдущей карточки (функция из stackSwitch.js)
                     clearActiveCard();
                 }
-
+                // Обновляем список карточек в SELECT
+                fastSelectlistCreate();
             }
         }
     };

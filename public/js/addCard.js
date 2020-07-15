@@ -171,8 +171,8 @@ function submitNewCard() {
 
                 clearForm();
 
-                //                console.log(activeCardsArray);
-                //                console.log(stack);
+                // Обновляем список карточек в SELECT
+                fastSelectlistCreate();
 
             }
         }
