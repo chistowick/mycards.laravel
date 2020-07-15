@@ -1,10 +1,18 @@
 "use strict";
 
-$(document).ready(function () {
-    $('#fastSelect').change(function () {
+// Настройки активной стороны SELECT по умолчанию
+let activeSelectId = '#fastSelectOriginal';
+let inactiveSelectId = '#fastSelectTranslation';
 
-        // Определяем значение аттрибута value элемента, по которому был клик
-        let selectElementValue = $('#fastSelect option:selected').attr('value');
+$(document).ready(function () {
+    $('.fastSelect').change(function () {
+
+        // Определяем идентификатор SELECT, по которому был клик
+        let selectId = $(this).attr('id');
+
+        // Определяем отмеченный option и его значение аттрибута value
+        let selectElement = $(`#${selectId} option:selected`);
+        let selectElementValue = selectElement.attr('value');
 
         // console.log(`selectElementValue ${selectElementValue}`);
 
@@ -17,6 +25,13 @@ $(document).ready(function () {
 
         // Обновляем отображение активной карточки
         updateCardView();
+
+        // Отменяем selected в обоих SELECT чтобы не путать пользователя
+        // $(`#selectElementOriginal_${curentNumberActiveCard}`).prop('selected', false);
+        // $(`#selectElementTranslation_${curentNumberActiveCard}`).prop('selected', false);
+
+        $('select').prop('selectedIndex', 0);
+
     });
 });
 
@@ -26,33 +41,48 @@ function fastSelectlistCreate() {
     // Если массив с активными карточками уже существует
     if (activeCardsArray) {
 
-        let fastSelect = document.getElementById("fastSelect");
+        let fastSelectOriginal = document.getElementById("fastSelectOriginal");
+        let fastSelectTranslation = document.getElementById("fastSelectTranslation");
 
-        // Удаляем предыдущий список
-        while (fastSelect.firstChild) {
-            fastSelect.removeChild(fastSelect.firstChild);
+        // Удаляем предыдущие списки для обоих сторон
+        while (fastSelectOriginal.firstChild) {
+            fastSelectOriginal.removeChild(fastSelectOriginal.firstChild);
+        }
+        while (fastSelectTranslation.firstChild) {
+            fastSelectTranslation.removeChild(fastSelectTranslation.firstChild);
         }
 
         // Добавляем заголовок к SELECT и делаем его недоступным
-        let firstOption = document.createElement("option");
-        firstOption.text = "Select";
-        fastSelect.add(firstOption, firstOption[0]);
-        fastSelect.firstChild.disabled = true;
-        fastSelect.firstChild.style.display = "none";
+        let firstOptionTranslation = document.createElement("option");
+        firstOptionTranslation.text = "Выбрать";
+        fastSelectTranslation.add(firstOptionTranslation, firstOptionTranslation[0]);
+        fastSelectTranslation.firstChild.disabled = true;
+        // fastSelect.firstChild.style.display = "none";
+
+        let firstOptionOriginal = document.createElement("option");
+        firstOptionOriginal.text = "Select";
+        fastSelectOriginal.add(firstOptionOriginal, firstOptionOriginal[0]);
+        fastSelectOriginal.firstChild.disabled = true;
 
         activeCardsArray.forEach(function (item, i, arr) {
 
-            let option = document.createElement("option");
+            let optionOriginal = document.createElement("option");
+            let optionTranslation = document.createElement("option");
 
-            option.text = item.original;
+            optionOriginal.text = item.original;
+            optionTranslation.text = item.translation;
 
-            fastSelect.add(option);
+            fastSelectOriginal.add(optionOriginal);
+            fastSelectTranslation.add(optionTranslation);
 
-            // Добавляем каждому элементу списка идентификатор #selectElement_(номер элемента)
-            //// Всем элементам добавляем класс .selectElements
-            fastSelect.lastChild.setAttribute('id', `selectElement_` + i);
-            fastSelect.lastChild.setAttribute('class', 'selectElements');
-            fastSelect.lastChild.setAttribute('value', i);
+            // Добавляем каждому элементу списка идентификатор и класс
+            fastSelectOriginal.lastChild.setAttribute('id', `selectElementOriginal_` + i);
+            fastSelectOriginal.lastChild.setAttribute('class', 'selectElements');
+            fastSelectOriginal.lastChild.setAttribute('value', i);
+
+            fastSelectTranslation.lastChild.setAttribute('id', `selectElementTranslation_` + i);
+            fastSelectTranslation.lastChild.setAttribute('class', 'selectElements');
+            fastSelectTranslation.lastChild.setAttribute('value', i);
         });
 
     }
