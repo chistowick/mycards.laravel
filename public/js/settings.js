@@ -13,6 +13,8 @@ $(document).ready(function () {
 
             activeSideId = '#original_side';
             inactiveSideId = '#translation_side';
+            activeSelectId = '#fastSelectOriginal';
+            inactiveSelectId = '#fastSelectTranslation';
 
             // Меняем цвет кнопок индикаторов
             $('#front_side_activation').css({'background-color': '#29de29'});
@@ -20,13 +22,21 @@ $(document).ready(function () {
         } else {
             activeSideId = '#translation_side';
             inactiveSideId = '#original_side';
+            activeSelectId = '#fastSelectTranslation';
+            inactiveSelectId = '#fastSelectOriginal';
 
             // Меняем цвет кнопок индикаторов
             $('#front_side_activation').css({'background-color': 'lightgray'});
             $('#back_side_activation').css({'background-color': '#29de29'});
         }
 
+        // Скрываем неактивную сторону карточки, показываем активную сторону
         $(inactiveSideId).css({'display': 'none'});
         $(activeSideId).css({'display': 'block'});
+
+        // Скрываем неактивный SELECT, показываем активный
+        $(activeSelectId).css({'display': 'block'});
+        $(inactiveSelectId).css({'display': 'none'});
+
     });
 });
