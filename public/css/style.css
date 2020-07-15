@@ -128,7 +128,7 @@ label {
     background-color: lightblue;
 }
 
-#fastSelect {
+#fastSelectOriginal, #fastSelectTranslation {
     display: block;
     min-height: 50px;
     width: 100%;
@@ -136,6 +136,11 @@ label {
     font: 145% "Trebuchet MS", Verdana;
     border: none; 
     padding: 0px 0px 0px 5px;
+}
+
+#fastSelectOriginal option:first-child, 
+#fastSelectTranslation option:first-child {
+    display: none;
 }
 
 #front_side_activation {

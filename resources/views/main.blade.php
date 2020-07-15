@@ -53,8 +53,11 @@
             <!-- Меню настроек -->
             <div id="menuOptions">
                 <div id="search" class="top_menu">
-                    <select id="fastSelect" size="1" name="word">
-                        <option class="selectElements" value="Select">Select</option>
+                    <select id="fastSelectOriginal" size="1" class="fastSelect">
+                        <option class="selectElementsOriginal" value="Select">Select</option>
+                    </select>
+                    <select id="fastSelectTranslation" size="1" class="fastSelect" style="display: none">
+                        <option class="selectElementsTranslation" value="Select">Выбрать</option>
                     </select>
                 </div>
                 <div id="front_side_activation" class="top_menu set_active_side">
