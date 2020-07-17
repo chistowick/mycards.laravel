@@ -113,4 +113,33 @@ class AjaxController extends Controller
 
         return;
     }
+
+    /**
+     *
+     * Moves the card by id from old stack to new stack. Prints status.
+     *
+     * @return void;
+     * 
+     **/
+    public function moveCard(Request $request)
+    {
+        $movedCardId = $request->id;
+
+        // TODO Нужно добавить проверку логина из сессии, чтобы пользователь мог редактировать только свои карточки
+
+        $movedCard = Card::find($movedCardId); // Получаем модель карточки, которую хотим отредактировать
+
+        // Изменяем стек карточки
+        $movedCard->stack = $request->stack;
+
+        // Сохраняем изменения в базу и возвращаем статус операции клиенту JS
+        // TODO Проверить тип данных, в котором TRUE/FALSE придет в JS
+        if ($movedCard->save()) {
+            echo json_encode([TRUE]);
+        } else {
+            echo json_encode([FALSE]);
+        }
+
+        return;
+    }
 }
