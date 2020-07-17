@@ -38,6 +38,11 @@ function showBackCard() {
 }
 
 function upendCard() {
+
+    // Если клик прошел с поверхности кнопок moveCard, то просто игнорируем клик
+    if (moveActive == true) {
+        return;
+    }
     
     // Если стек еще не выбран
     if (activeCardsArray.length == 0){
