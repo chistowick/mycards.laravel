@@ -197,6 +197,7 @@ label {
 }
 
 #active_stack {
+    position: relative;
     height: 220px;
     width: 400px;
     margin: 0px;
@@ -302,6 +303,54 @@ label {
     float: right;
     border-radius: 10px 40px 40px 10px;
     margin-left: 20px;
+}
+
+.move {
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    min-height: 50px;
+    min-width: 50px;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    border-width: 2px;
+    border: 2px solid;
+    border-color: black;
+    opacity: 0.4;
+    transition-property: opacity;
+    transition-duration: 0.8s;
+}
+
+.move:hover {
+    opacity: 1;
+}
+
+#move-card-up {
+    top: 0px;
+    background-image: url(../img/buttons/moveUp.png);
+}
+
+.down1stack:hover {
+    background-color: yellow;
+}
+
+.up2stack:hover {
+    background-color: red;
+}
+
+.down2stack:hover {
+    background-color: darkgreen;
+}
+
+.up3stack:hover {
+    background-color: yellow;
+}
+
+#move-card-down {
+    bottom: 0px;
+    background-image: url(../img/buttons/moveDown.png);
 }
 
 #footer{

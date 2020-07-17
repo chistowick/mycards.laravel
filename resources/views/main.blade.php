@@ -83,6 +83,10 @@
                     <p>BACK</p>
                 </div>
                 <div id="active_stack" class="cards">
+
+                    <div id="move-card-up" class="move"></div>
+                    <div id="move-card-down" class="move"></div>
+
                     <div id="original_side">
                         <div class="wrap_inf_card">
                             <div id="original_div">
@@ -152,6 +156,7 @@
     <script src='js/editCard.js'></script>
     <script src='js/deleteCard.js'></script>
     <script src='js/fastSelectCard.js'></script>
+    <script src='js/moveCard.js'></script>
 
 </body>
 
