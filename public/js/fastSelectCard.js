@@ -33,7 +33,7 @@ $(document).ready(function () {
         }
 
         // Задаем selected нулевому элементу в обоих SELECT чтобы не путать пользователя
-        $('select').prop('selectedIndex', 0);
+        $('.fastSelect').prop('selectedIndex', 0);
 
     });
 });
@@ -67,6 +67,8 @@ function fastSelectlistCreate(callback = selectSort) {
         fastSelectOriginal.add(firstOptionOriginal, firstOptionOriginal[0]);
         fastSelectOriginal.firstChild.disabled = true;
 
+        // i = номер карточки в массиве активных карточек
+        // item = сама карточка как элемент массива
         activeCardsArray.forEach(function (item, i, arr) {
 
             let optionOriginal = document.createElement("option");

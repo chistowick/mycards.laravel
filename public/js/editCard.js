@@ -17,6 +17,11 @@ $(document).ready(function () {
             return;
         }
 
+        // Добавляем единицу, если нужно, если стек только переключился, но карта не активна
+        if (curentNumberActiveCard == -1) {
+            curentNumberActiveCard = 0;
+        }
+
         // Переводим кнопку формы в режим EDIT
         $('.add-or-edit').attr('id', 'edit-form-button');
 
@@ -130,12 +135,6 @@ function submitEditedCard() {
 
     // Получаем защитный токен Laravel из скрытого input
     let laravelToken = document.querySelector('input[name="_token"]').value;
-
-    // Добавляем единицу, если нужно, если стек только переключился, но карта не активна
-    // TODO Подумать, как избавиться от этой необходимости
-    if (curentNumberActiveCard == -1) {
-        curentNumberActiveCard = 0;
-    }
 
     // Определяем id активной карточки
     let idEditedCard = activeCardsArray[curentNumberActiveCard].id;
