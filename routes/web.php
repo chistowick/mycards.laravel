@@ -28,3 +28,6 @@ Route::post('ajax/edit-card', 'AjaxController@editCard');
 
 // Маршрут для обработки запроса на удаление карточки
 Route::post('ajax/delete-card', 'AjaxController@deleteCard');
+
+// Маршрут для обработки запроса на перемещение карточки
+Route::post('ajax/move-card', 'AjaxController@moveCard');
