@@ -33,6 +33,11 @@ $(document).ready(function () {
             $('#stack_2').css({'background-color': "yellow"});
             $('#stack_3').css({'background-color': "darkgreen"});
 
+            // Кастомизируем кнопки переброса карточки в другой стек
+            $('#move-card-up').css({'display': 'none'});
+            $('#move-card-down').css({'display': 'block'});
+            $('#move-card-down').attr('class', 'move down1stack');
+
         } else if (id === 'stack_2') {
 
             activeStackNumber = 2;
@@ -42,6 +47,12 @@ $(document).ready(function () {
             $('#stack_2').css({'background-color': "lightgray"});
             $('#stack_3').css({'background-color': "darkgreen"});
 
+            // Кастомизируем кнопки переброса карточки в другой стек
+            $('#move-card-up').css({'display': 'block'});
+            $('#move-card-down').css({'display': 'block'});
+            $('#move-card-up').attr('class', 'move up2stack');
+            $('#move-card-down').attr('class', 'move down2stack');
+
         } else {
 
             activeStackNumber = 3;
@@ -50,6 +61,11 @@ $(document).ready(function () {
             $('#stack_1').css({'background-color': "red"});
             $('#stack_2').css({'background-color': "yellow"});
             $('#stack_3').css({'background-color': "lightgray"});
+
+            // Кастомизируем кнопки переброса карточки в другой стек
+            $('#move-card-up').css({'display': 'block'});
+            $('#move-card-down').css({'display': 'none'});
+            $('#move-card-up').attr('class', 'move up3stack');
 
         }
 //        console.log(activeStack);
