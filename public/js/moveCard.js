@@ -1,26 +1,11 @@
 "use strict";
 
-let moveActive = false;
-
-// Активируем маркер при наведении мыши на кнопки moveCard:
-$(document).ready(function () {
-    $('#move-card-up, #move-card-down').mouseover(function () {
-
-        moveActive = true;
-    });
-});
-
-// Деактивируем маркер при снятии мыши с кнопки moveCard:
-$(document).ready(function () {
-    $('#move-card-up, #move-card-down').mouseout(function () {
-
-        moveActive = false;
-    });
-});
-
 // Добавляем обработчик клика на кнопку перемещения карточки вверх:
 $(document).ready(function () {
     $('#move-card-up').click(function () {
+
+        // Прерываем всплытие события
+        event.stopPropagation();
 
         // Если активный стек уже равен 1, игнорим клик
         if (activeStackNumber == 1) {
@@ -38,14 +23,15 @@ $(document).ready(function () {
         // Перемещаем карточку в другой стек
         moveCard(oldStack, newStack);
 
-        // Явно деактивируем маркер
-        moveActive = false;
     });
 });
 
 // Добавляем обработчик клика на кнопку перемещения карточки вниз:
 $(document).ready(function () {
     $('#move-card-down').click(function () {
+
+        // Прерываем всплытие события
+        event.stopPropagation();
 
         // Если активный стек уже равен 3, игнорим клик
         if (activeStackNumber == 3) {
@@ -63,8 +49,6 @@ $(document).ready(function () {
         // Перемещаем карточку в другой стек
         moveCard(oldStack, newStack);
 
-        // Явно деактивируем маркер
-        moveActive = false;
     });
 });
 
@@ -131,11 +115,6 @@ function moveCard(oldStack, newStack) {
                 // Удаляем непосредственно объект карточки из основного стека
                 delete stack[oldStack].idMovedCard;
 
-                console.log('Стек после');
-                console.log(stack);
-                console.log('массив после');
-                console.log(activeCardsArray);
-
                 /**
                  * Когда пользователь выберет новый стек, новая карточка автоматически 
                  * попадет в массив активных карточек согласно механизму в stackSwitch
@@ -144,11 +123,8 @@ function moveCard(oldStack, newStack) {
                 // Если в стеке остались карточки
                 if (activeCardsArray.length != 0) {
 
-                    // Готовим к показу следующую карточку
-                    forwardCard();
-
-                    // Выводим данные карточки, подготовленной на предыдущем шаге
-                    updateCardView();
+                    // Показываем следующую карточку
+                    showForwardCard(); // из showCard.js
                 } else {
                     // Очищаем данные предыдущей карточки (функция из stackSwitch.js)
                     clearActiveCard();
